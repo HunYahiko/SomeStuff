@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4 text-center">
+    <form [formGroup]="searchForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Search:</mat-label>
+        <input matInput type="text" placeholder="Album Name" id="searchFilter" class="search-input" formControlName="album_name" (keyup.enter)="searchAlbum()">
+      </mat-form-field>
+    </form>
+  </div>
+</div>
+

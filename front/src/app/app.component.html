@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <app-search-component
+    (searchEvent)="searchAlbum($event)"></app-search-component>
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 text-center">
+      <button class="btn btn-outline-primary" (click)="toggleCreateComponent()">{{ isVisible == true ? 'Close Create Window' : 'Add Album' }}</button>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
+  <app-show-albums
+    (errorEvent)="updateDeleteError($event)"></app-show-albums>
+  <app-create-album *ngIf="isVisible"></app-create-album>
+</div>
+

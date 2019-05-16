@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-sm-12 text-center mt-3 mb-3">
+    <table mat-table [dataSource]="albums" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> No. </th>
+        <td mat-cell *matCellDef="let album; let i = index" class="text-center"> {{i}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> Name </th>
+        <td mat-cell *matCellDef="let album" class="text-center"> {{album.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="number_of_tracks">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> Number of Tracks </th>
+        <td mat-cell *matCellDef="let album" class="text-center"> {{album.numberOfTracks}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> Price </th>
+        <td mat-cell *matCellDef="let album" class="text-center"> $&nbsp;{{album.price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> Description </th>
+        <td mat-cell *matCellDef="let album" class="text-center"> {{album.description}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="update">
+        <th *matHeaderCellDef class="text-center"></th>
+        <td *matCellDef="let album; let i=index" class="text-center">
+          <button mat-button (click)="updateAlbum(album, i)" class="btn btn-secondary btn-sm"> Update </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th *matHeaderCellDef class="text-center"></th>
+        <td *matCellDef="let album; let i=index" class="text-center">
+          <button mat-button (click)="deleteAlbum(album, i)" class="btn btn-danger btn-sm"> Delete </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>
